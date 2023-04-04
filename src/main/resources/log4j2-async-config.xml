@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration name="logging-benchmark" status="warn">
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d %p [%t] %logger - %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <Async name="Async">
+            <bufferSize>1024</bufferSize>
+            <blocking>false</blocking>
+            <AppenderRef ref="STDOUT"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug" >
+            <AppenderRef ref="Async" />
+        </Root>
+    </Loggers>
+</Configuration>

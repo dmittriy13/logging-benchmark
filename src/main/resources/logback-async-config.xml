@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p [%t] %logger - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="asyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>1024</queueSize>
+        <discardingThreshold>-1</discardingThreshold>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="consoleAppender"/>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="asyncAppender"/>
+    </root>
+</configuration>
